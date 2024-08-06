@@ -1,11 +1,20 @@
-﻿public class EnUaTranslator : Translator
+﻿namespace HW3
 {
-	public override string TextLanguage => throw new NotImplementedException();
-
-	public override string TargetLanguage => throw new NotImplementedException();
-
-	public override string Translate(string incomingText)
+	public class EnUaTranslator : Translator
 	{
-		throw new NotImplementedException();
+		public override string TextLanguage { get; } = "English";
+
+		public override string TargetLanguage { get; } = "Ukrainian";
+
+		public override string Translate(string incomingText)
+		{
+			string result = incomingText switch
+			{
+				"Hello" => "Привіт",
+				"Bye" => "Прощавай",
+				_ => "Check your input is correct"
+			};
+			return result;
+		}
 	}
 }
