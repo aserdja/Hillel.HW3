@@ -1,12 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HW3
+﻿namespace HW3
 {
-	internal class UaEnTranslator
+	public class UaEnTranslator : Translator
 	{
+		public override string TextLanguage { get; } = "Ukrainian";
+
+		public override string TargetLanguage { get; } = "English";
+
+		public override string Translate(string incomingText)
+		{
+			string result = incomingText switch
+			{
+				"Привіт" => "Hello",
+				"Прощавай" => "Bye",
+				_ => "Перевірте правильність введених даних"
+			};
+			return result;
+		}
 	}
 }
